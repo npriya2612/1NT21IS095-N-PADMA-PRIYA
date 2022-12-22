@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<ctype.h>
+#define size 10;
+
+int top =-1;    //declare and intialise top pointer
+int stack[20];  //declaring stack for evaluation
+void push(int x) //push function
+{
+  stack[++top]=x; //pushes operands into into the stack
+           
+}
+int pop()       //pop function
+{
+  return stack[top--]; //pops the top of the stack
+}
+int main()
+{
+  char exp[20];   //declaring an array for postfix expression
+  char *e;        
+  int n1,n2,n3,num;
+  printf("Enter the expression");
+  scanf("%s",exp); //stores the value of the entered expression
+  e=exp;
+  while(*e!='\0')  //loop terminates at the end of expression string
+  {
+     if(isdigit(*e)) //checks if the encountered element is an operand
+     {
+        num=*e-48;  //to convert from the ASCII value to decimal
+        push(num); //pushes the number into the stack
+     }
+     else  //if the encountered element is an operator
+     {
+        n1=pop();  //pops operand
+        n2=pop();  //pops operand
+        switch(*e) //check which operator is encountered
+        {  case'/': n3=n2/n1; //division operation
+           break;
+           case'*': n3=n2*n1;  //multiplication operation
+           break;
+           case'-': n3=n2-n1;  //subtraction operation
+           break;
+           case'+': n3=n2+n1;  //addition operation
+           break;
+        }
+     
+     push(n3);   //pushes the result
+    }
+  e++;
+   }
+  printf("the result of the expression is %s=%d",exp,pop());  //prints the result
+  return 0;
+}
