@@ -1,0 +1,82 @@
+
+//to implement stack using an array
+#include <stdio.h> //standard input output header file
+#include <stdlib.h> //standard library header file
+#define size 4         //initializing the array size to 4
+
+int top=-1,inp_arr[size];  // initializing the top value to the -1
+void push();   //push function//
+void pop();    //pop function
+void diplay(); // display function  
+int main()
+{
+	int choice;    //declaring the choice
+
+	while(1)      //checks the condition
+
+{
+	printf("*****MENU*****");
+	printf("\n 1.push \n 2.pop \n 3.display \n4.exit\n");
+     //prints the functions//
+printf("Enter your choice\n");
+	scanf("%d",& choice);   
+     / /scans the input and places the value into the choice
+
+	switch(choice)
+  //scans the condition and enters it into the case when it satisfies
+
+	{
+		case 1: push(); //prints the case 1 when the condition is 1
+		break;
+		case 2: pop(); //prints the case 2 when the condition is 2
+		break;
+		case 3: display(); //prints the case 3 when the condition is 3
+		break;
+		case 4: exit(0);   //come out of the loop
+		default: printf("invalid option");
+	}
+}
+}
+void push()
+{
+	int x;
+	if(top==size-1) //checks the condition//
+
+	{
+		printf("overflow"); //prints the value when stack overflow 
+	}
+	else
+	{
+		printf("enter elements to be inserted");
+		scanf("%d", &x);
+		top=top+1;  //increment by 1
+		inp_arr[top]=x;
+	}
+}
+void pop()
+{
+	int x;
+	if(top==-1) //checks the condition//
+
+	{
+	    printf("/n underflow"); /*prints the value when stack underflow                        
+	}
+	else{
+		printf("Deleted %d\n",inp_arr[top]);
+		top=top-1; //decrement//
+	}
+}
+void display()
+{
+	int i;
+	printf("stack elements are:");
+	for(i=0;i<=top;i++)
+	{
+		printf("%d\n",inp_arr[i]);
+	}
+          else
+        {
+            printf("stack is empty\n");
+        }
+
+}
