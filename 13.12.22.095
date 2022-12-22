@@ -1,4 +1,4 @@
-//Infix to postfix//
+//Infix to prefix//
 #include<stdio.h>//standard input output header file//
 #include<stdlib.h>//standard library header file//
 #include<ctype.h>//set of functions to classify// 
